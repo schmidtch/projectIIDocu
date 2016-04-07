@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Thu Apr 07 12:17:37 CEST 2016
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=documentation_mdic.tex
+outputFile=documentation_mdic.pdf
+langSpell=en
+markDer=true
+srcDir=
