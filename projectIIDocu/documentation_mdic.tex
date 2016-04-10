@@ -5,6 +5,14 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{subfigure}
+\usepackage{soul}
+\usepackage{color}
+
+% soul highlighting config
+\setul{1ex}{0.8ex}
+\definecolor{orange}{rgb}{1,0.5,0}
+\setulcolor{orange}
+
 
 \begin{document}
 	\begin{titlepage}
@@ -42,7 +50,7 @@
 	
 	\section{Hospital Information Communication}
 	\subsection{General Communication}
-		The general communication for hospital informations is about data of patients,
+		The general communication for hospital information is about data of patients,
 		medical results, laboratory results, radiographs, financial data, insurance
 		data and much more. In the middle of the whole communication will be the
 		Hospital Information System (HIS). This system stores the patient information
@@ -70,10 +78,10 @@
 		  an Access Gateway (AGW) for connecting and communicating with external
 		  partners.}
 		\end{figure}
-	    Specially in Austria there will be new kind of system the so called ELGA.
+	    Specially in Austria there will be new kind of system the so called
+	    Elektronische Gesundheitsakte (ELGA).
 	    This will give the posibility for people in Austria to have a look on their
-	    own clinical record in digital way. The ELGA and the system of it will be
-	    explained later on in chapter 4.\\
+	    own clinical record in digital way. ELGA and it¥s architecture will be explained later on in chapter 4.\\
 	    To get the systems speaking together a communcation server will be used.
 	    This Server connects all the systems together and it is be able to make
 	    mappings and database queries to get the right data in the right fields if
@@ -90,9 +98,9 @@
 		
 	\newpage
 	
-	\section{IBM Cognos}
-	\subsection{Introduction}
-	Introduction to IBM Cognos
+	\section{IBM Cognos Business Intelligence}
+	IBM Cognos Business Intelligence (BI) is a software suit designed to extract corporate data.
+	
 	\subsection{Framework Manager}
 	Overview to Framework Manager
 	\subsection{Report Studio}
@@ -102,9 +110,75 @@
 	
 	\newpage
 		
-	\section{ELGA - Cross Document Sharing}
-	\subsection{Wei√ü nicht genau?}
+	\section{ELGA }
+	In the second quarter of year 2016 ELGA in Carinthia (now on referred as 'ELGA Bereich
+	K‰rnten' (EBK)) will be connected to central core components. This connection will make
+	the availability of documents of citizens and 
+	also non-citizens possible in entire Austria. Today, the EBK operates
+	as a closed unit which receives data solely from carinthian healthcare providers. 
+	At this moment no knowledge about quality, correctness and the total amount of data
+	exists, which is mainly needed in decision-making processes.\\
+	\\
+ 	This lack of knowledge should be compensated by the use of IBM Cognos Business 
+ 	Intelligence, a multi-database environment, by creating a data-warehouse in the KABEG-IT
+ 	department. A data-warehouse forms a model, consisting of several sources of persistent
+ 	information, and combines them in a central place.\\
+ 	\\
+	The aim of this project is to build up a prototype-model for the ELGA environment from 
+	scratch, using the existing databases. On the basis of this model, HTML-based reports 
+	for end-users should be created, which should give the actual amount of patients,
+	registered documents (locally and also remote ones), queried documents, number 
+	of accesses of users and performance of transactions. When the EBK goes live, a distinction
+	between regional-ELGA-relevant documents, also called 'Informationsverbund-documents' (IV)
+	and EBK-documents will be made. This distinction will also be integrated in reports.\\
+	\\
+	
+	\subsection{XDS - Cross Document Sharing}
+	
+	The concept of ELGA, in this case IV and EBK, is described by the term Cross Document Sharing
+	(XDS), which allows the exchange of documents between healt care providers, also on federal state level.\\
+	This requieres following components:\\
+	\begin{itemize}
+	    	\item PIX - Patient Identifier Cross-Referencing\\
+	    	Each ELGA realm uses its own PIX for managing patients. A central patient index is used to
+	    	make cross document sharing possbile.
+	    	\item Registry\\
+	    	IN general the main task of the registry is to link patients with their related information and also documents.
+	    	In detail the jobs and funtions of a registry are much more complex. The will be described in PUNKT DATAMODELL VERLINKEN.
+	    	\item Policy Repository\\
+	    	Access to documents is managed  by a policy repository. The compliance of patients is entered
+	    	by care personal, which can be administration personal for example. For EBK-related this process is similiar, but instead
+	    	of using the local repository a central authorization system is used. This allows citizens to manage access to their documents
+	    	in general and even after their treatment.
+	    	\item XDS Repository\\
+	    	A repository which consists of multiple logical formed storages. It saves and provides documents
+	    	to healt care providers.
+	    	\item XDS Consumer\\
+	    	A consumer has the role of a client. It retrieves documents from the XDS repository and displays them for users 
+	    	\item AGW - Acces Gateway
+	    	Main task of the AGW is to connect the EBK to central components and make Cross Community Access (XCA) between
+	    	ELGA realms possible.
+	    	\item Radiology Information System (RIS)
+	 \end{itemize}
+	
+	
+	
+	\subsection{Data Model}
+	\hl{Will be written as ELGA goes online, since major changes to the model will be made.
+	Since ELGA handels patient-related data, it must be evaluated how far the model can be described.}
+	\subsection{Evaluation and Mesurement of Keyfigures}
+	\hl{Will be written as ELGA goes online, since major changes to the model will be made.
+	Since ELGA handels patient-related data, it must be evaluated how far the Keyfigures can be described.}
 	\subsection{Next Steps}
+	Next project steps are the finalization of the prototype-model and the expansion
+	of reports. The finalization concerns the investigation of different data-warehouse
+	schemes in the aspects of time-efficiency and stress-minimization of the running system.
+	The reports will be supplemented with a fraud detection-report, which is supposed to 
+	give information about unpermitted- and unregularly access of users. Furthermore,
+	several fraud detection techniques will be investigated. As EBK goes online, a major
+	update of software and datamodels will be executed, making adaption and changes of the
+	existing data-warehouse necessary. On the other hand this can also lead to new possibilities
+	for integrating additional information in the data-warehouse.
 	
 	\newpage
 	
