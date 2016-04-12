@@ -99,10 +99,40 @@
 	\newpage
 	
 	\section{IBM Cognos Business Intelligence}
-	IBM Cognos Business Intelligence (BI) is a software suit designed to extract corporate data.
+	IBM Cognos Business Intelligence (BI) is a software suit designed to extract corporate data from data sources,
+	whereby a data source is everything from which persistent information could be retrieved. The extracted data
+	can be assembled in the Framework Manager environment to build a so called data warehouse. This warehouse forms
+	a foundation from which reports could be created and executed in Report Studio. After reports are created Business
+	user could run HTML-based Reports in Cognos Webview. Also automation processes and application of user policies,
+	restricting access to reports, can be used.
 	
 	\subsection{Framework Manager}
-	Overview to Framework Manager
+	The Framework Manager allows the construction of a logic layer, uniting different data sources in terms of 'query
+	items', which grant the possiblity of defining customised queries over, for example, multiple tables in one single
+	logical item. Also filtering of the retrieved data can be done.
+	\subsubsection{Defining Data Sources}
+	Before data can be gathered in Framework Manager, database connections have to be made avialable
+	for the Cognos application. Since Cognos is running on a windows server, a driver has to be installed for each type
+	of database. This can be done in 'ODBC Data Source Administrator'-Tool. When arranging a connection for the first time,
+	the appropriate data source type for the connection has to be chosen. This could be ODBC, ANSI or mixed type for 32- and 64 bit. In
+	the figure below an existing figure could be seen:\\
+	\begin{figure}[!ht]
+		  \centering
+		      \includegraphics[width=1.0\textwidth]{ExistingDataSource}
+		  \caption{}
+	\end{figure}
+	Furthermore, connection details for the database itself has to be entered for every connection.
+	\subsubsection{Frame Manager Surface}
+	\hl{Since patient-related Information is used, it must be evaluated how far this information can be revealed.}
+	Following figure shows an example of an existing data-warehouse:\\
+	\begin{figure}[!ht]
+		  \centering
+		      \includegraphics[width=1.0\textwidth]{frameworkM_2}
+		  \caption{}
+	\end{figure}
+	On the left side the project viewer can be seen. It displays in general logical items. This can be data sources,
+	views of data sources, which can be modified without altering existing data, and query items. Query items itself
+	are highly configurable and allows to define customized and even complex queries. 
 	\subsection{Report Studio}
 	Overview to Report Studio
 	\subsection{Data Topology}
