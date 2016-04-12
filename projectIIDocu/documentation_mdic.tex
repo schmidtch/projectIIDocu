@@ -152,8 +152,61 @@
 		  Record.}
 	\end{figure}
 	\subsection{Orbis Database}
+	The Orbis Database is grown over years. At the beginning it was a small
+	Database for a small application to store patientdata. Because of many user
+	wishes the company AGFA has to build in new features. \\
+	\begin{figure}[!ht]
+		  \centering
+		      \includegraphics[width=0.12\textwidth]{orbis_db_schema}
+		  \caption{Overview about the Orbis Database Schemas.}
+	\end{figure}
+	On one hand they develope some new features and modules for the application and
+	on the second they buy some applications or the company which develope the application directly and
+	merge them to Orbis. So the database became more and more schemas and tables
+	and grew more and more. The main goal is to get a good performance for the
+	user.
 	\subsection{Actual Problems}
+	The actual problem is that many database models were merged together. Many of
+	them are not state of the art. So there are really big Database tables with
+	many columns and without primary keys. They also don't have foreign keys to
+	other other necessary tables. So sometimes it is not easy to get the right
+	value to make a join over different tables.\\
+	Another problem is get an overview about this Database also because of the
+	problem descriped above. So if it is necessary to get simple values
+	which are displyed in the application as well, the need arises to get really
+	depth to the database. So it is not easy to get performant and correct
+	asserting from Orbis.
 	\subsection{Reports for Orbis}
-	
+	It was a goal of the project to build reports for boards of directors of the
+	Orbis database in IBM Cognos. 
+	\subsubsection{Overview about the reports}
+	A Cognos Cube was build with AGFA and an automatically server job was develope
+	to get actual data from the Orbis Database to this Cognos Cube.\\
+	The next step was to use the IBM Cognos Report Studio to develope reports for
+	the Web-Browser in HTML and for the iPhone application.
+	\begin{figure}[!ht]
+		  \centering
+		      \includegraphics[width=1.0\textwidth]{reports_overview}
+		  \caption{A view screenshots and overview about one of the reports. So it is
+		  possible to select the hospital, department and station and so on. It is
+		  also important to get a selection about in- or out-patient and the
+		  timeline and much more other properties. The board of directors will get an
+		  overview about the statistics they want and can select the properties on
+		  their own.}
+	\end{figure}
+	\subsubsection{Result of the report}
+	The results of the reports, which the boards of directors will get from it
+	where displayed in tables, charts and diagrams. So it will esay for them to
+	present statistical key figueres from the Hospital Information System and the
+	billing and other statistics.
+	\begin{figure}[!ht]
+		  \centering
+		      \includegraphics[width=1.0\textwidth]{reports_results}
+		  \caption{An Example for a report for the in-patient statistic of the
+		  Klinikum Klagenfurt. The load factor of the Klinikum is shown. It is
+		  obvious the curve decreases to Zero on October. This is because the data
+		  which were displayed for this tests are available ot October in the Cognos
+		  Cube.}
+	\end{figure}
 
 \end{document}
