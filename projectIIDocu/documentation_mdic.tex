@@ -45,20 +45,21 @@
 	\newpage
 
 	\section{Introduction}
-	Hier wird die Einführung stehen.
+	Hier wird die Einführung stehen. I GLAB DES BRAUCH MA NIT
 	\newpage
 	
 	\section{Hospital Information Communication}
 	\subsection{General Communication}
-		The general communication for hospital information is about data of patients,
-		medical results, laboratory results, radiographs, financial data, insurance
-		data and much more. In the middle of the whole communication will be the
-		Hospital Information System (HIS). This system stores the patient information
-		and send this data to all other so called Subsystems. A Subsystem will be
-		every system which get data from HIS. This systems can also send data back to
-		the HIS. For all this communication between the systems there will be a
-		standardized protocoll named Health Line 7 (HL7).\\
-		The following systems could be subsystems of the Hospital Information System:
+		The communication in hospital is mainly about patient data,
+		medical- and laboratory results, radiographs, financial data, insurance
+		data and much more. In the middle of the whole communication the
+		Hospital Information System (HIS) is centered. This system stores the patient
+		information and sends data to all other subsystems. A subsystem
+		will be every system which gets data from the HIS. This systems also can send
+		data back to the HIS. For all communication between systems there is a
+		standardized protocoll, named Health Level 7 (HL7), in use.\\
+		The following systems are examples for subsystems of the Hospital
+		Information System:
 		\begin{itemize}
 	    	\item Laboratory Information System (LIS)
 	    	\item Electronic Medical Record (EMR)
@@ -73,28 +74,32 @@
 		  \centering
 		      \includegraphics[width=1.0\textwidth]{HIS_Overview}
 		  \caption{In the blue box on the left the Hospital Information System
-		  Communication is shown. All this system communicate with the ELGA system
-		  (on the right) which has an Patient Identifier Cross Referencing (PIX) and
-		  an Access Gateway (AGW) for connecting and communicating with external
-		  partners.}
+		  Communication can be seen. The HIS  communicates with the ELGA system
+		  (on the right) which has its own Patient Identifier Cross Referencing
+		  (PIX) and a Access-Gateway (AGW) for connecting and communicating with
+		  external partners.}
 		\end{figure}
-	    Specially in Austria there will be new kind of system the so called
-	    Elektronische Gesundheitsakte (ELGA).
+	    Especially in Austria there will be new kind of system for patient-related
+	    documents, in which every citizen can restrict access to his data to other
+	    parties. The system is called Elektronische Gesundheitsakte (ELGA).
 	    This will give the posibility for people in Austria to have a look on their
-	    own clinical record in digital way. ELGA and it�s architecture will be explained later on in chapter 4.\\
-	    To get the systems speaking together a communcation server will be used.
-	    This Server connects all the systems together and it is be able to make
-	    mappings and database queries to get the right data in the right fields if
-	    they are not.
-	\subsection{Health Line 7}
-		The Health Line 7 (HL7) is a standardized protocol in Version 2.5 and in
-		future in Version 3 for the communication in eHealth systems. All systems
-		who were communcating in an hospital will be called eHealth systems.\\
-		HL7 provides a framework to exchange, integration, sharing and retrieval of
-		electronix health information. It defines also the language, structure and the
+	    own clinical record in digital way. ELGA and its architecture will be
+	    explained in chapter 4.\\
+	    To get the systems to speak to each other, a communcation server
+	    is used.
+	    This Server connects all systems together, map different types of messages
+	    in other structered layouts for that they can be understood by other
+	    systems and can store messages if destination systems are not available.
+	\subsection{Health Level 7}
+		The Health Level 7 (HL7) is a standardized protocol in Version 2.5 and in near
+		future the Version 3 will be used for communication in eHealth systems.
+		All systems, who are communcating in an hospital, are called eHealth
+		systems.\\
+		HL7 provides a framework to exchange, integrate, share and retrieve 
+		electronic health information. It defines also the language, structure and the
 		data types which are used for the communicatoin between the eHealth systems.\\
 		The standard is human-readable and near to all eHealth systems are able to
-		read data from HL7 and to export data in HL7.
+		read data from HL7 and export data in HL7.
 		
 	\newpage
 	
@@ -132,11 +137,40 @@
 	\end{figure}
 	On the left side the project viewer can be seen. It displays in general logical items. This can be data sources,
 	views of data sources, which can be modified without altering existing data, and query items. Query items itself
-	are highly configurable and allows to define customized and even complex queries. 
+	are highly configurable and allows to define customized and also complex
+	queries, which were not possible to execute by selecting data directly.\\
+	\\
+	Centered, the data view can be seen. It is a graphical surface allowing the
+	creation of logic relation beetween tables and query items respectively.
+	Filtering of selected data can also be done in this view. With filters
+	simply all data can be selected in terms of performance and then limited
+	afterwards. This greatly increases perfomance wihtout stressing data sourcs
+	Beside the usage of logical relation and filters, also the creation of
+	dimensions is possible.
+	This can be done in 'Dimensions', which can be seen at the top of the figure. 
+	Dimensions allow the comparison of
+	Keyfigures dependend on dimensions like time, costs, storage usage and more.\\
+	\\
+	When the construcion of a data warehous is done or changes on data were
+	implemented, a package must be published in order to create reports in Report
+	Studio.
 	\subsection{Report Studio}
-	Overview to Report Studio
+	Report Studio allows the creation of HTML-based reports for end users
+	(Business users in Cognos terms), which can be executed on demand or
+	time-based.\\
+	Follwing figure shows the graphical surface of Report Studio: 
+	\begin{figure}[!ht]
+		  \centering
+		      \includegraphics[width=1.0\textwidth]{ReportStudio_2}
+		  \caption{}
+	\end{figure}
+	On the left side query items, dimensions and simple numbers can be seen, which
+	were created beforhand in Framework Manager. In the centered view the general
+	structure of the report can be assembled by simply drag-and-drop the desired
+	elements in the view. Also text, graphical elements and different types of
+	diagrams can be added
 	\subsection{Data Topology}
-	Overview to Data Topology build in Cognos
+	Overview to Data Topology build in Cognos  hm ?????
 	
 	\newpage
 		
@@ -188,13 +222,19 @@
 	    	\item AGW - Acces Gateway
 	    	Main task of the AGW is to connect the EBK to central components and make Cross Community Access (XCA) between
 	    	ELGA realms possible.
-	    	\item Radiology Information System (RIS)
+	    	\item ATNA - Audit Trail and Node Authentication
+	    	Every transaction from every node is protocolled in an ATNA repository.
+	    	This forms the largest source on which the reports are build on.
+	    	
 	 \end{itemize}
 	
 	
 	
 	\subsection{Data Model}
-	\hl{Will be written as ELGA goes online, since major changes to the model will be made.
+	The basis structure of the ELGA data model consists of an Electronic Business
+	XML - database (ebXML).
+	\hl{Will be written as ELGA goes online, since major
+	changes to the model will be made.
 	Since ELGA handels patient-related data, it must be evaluated how far the model can be described.}
 	\subsection{Evaluation and Mesurement of Keyfigures}
 	\hl{Will be written as ELGA goes online, since major changes to the model will be made.
